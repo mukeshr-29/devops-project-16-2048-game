@@ -53,5 +53,18 @@ pipeline{
                 sh 'trivy fs . > trivyfs.txt'
             }
         }
+        stage('docker build & push'){
+            steps{
+                script{
+                    withDockerRegistry(credentialsId: 'dockerhub', toolName: 'docker'){
+                        sh '''
+                            docker build -t 2048_game .
+                            docker tag 2048_game mukeshr29/2048_game:latest
+                            docker push mukeshr29/2048_game:latest
+                        '''
+                    }
+                }
+            }
+        }
     }
 }
