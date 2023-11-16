@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: 2048_project_deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: 2048_project
+  template:
+    metadata:
+      labels:
+        app: 2048_project
+    spec:
+      containers:
+      - name: 2048_project
+        image: mukeshr29/2048_game:latest
+        ports:
+        - containerPort: 3000
