@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: 2048_project_service
+  name: myapp-service
 spec:
   selector:
-    app: 2048_project
+    app: myapp
   ports:
   - port: 80
     targetPort: 3000
