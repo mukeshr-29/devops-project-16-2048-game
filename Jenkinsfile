@@ -66,5 +66,10 @@ pipeline{
                 }
             }
         }
+        stage('trivy img scan'){
+            steps{
+                sh 'trivy image mukeshr29/2048_game:latest > trivy.txt'
+            }
+        }
     }
 }
